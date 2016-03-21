@@ -12,11 +12,13 @@ namespace MVC5Course.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class FabricsEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public FabricsEntities()
+            : base("name=FabricsEntities")
         {
         }
     
@@ -30,5 +32,18 @@ namespace MVC5Course.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderLine> OrderLine { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+    
+        public virtual ObjectResult<GetProduct_Result> GetProduct(Nullable<bool> active, string keyWord)
+        {
+            var activeParameter = active.HasValue ?
+                new ObjectParameter("Active", active) :
+                new ObjectParameter("Active", typeof(bool));
+    
+            var keyWordParameter = keyWord != null ?
+                new ObjectParameter("KeyWord", keyWord) :
+                new ObjectParameter("KeyWord", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProduct_Result>("GetProduct", activeParameter, keyWordParameter);
+        }
     }
 }
