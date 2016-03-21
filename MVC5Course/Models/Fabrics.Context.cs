@@ -13,10 +13,10 @@ namespace MVC5Course.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FabricsEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public FabricsEntities()
-            : base("name=FabricsEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
