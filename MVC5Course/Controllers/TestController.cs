@@ -109,6 +109,10 @@ namespace MVC5Course.Controllers
 
                 return Content(errorstr);
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
             
 
             return RedirectToAction("ReadProduct");
