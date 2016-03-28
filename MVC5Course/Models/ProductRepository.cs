@@ -21,7 +21,7 @@ namespace MVC5Course.Models
             entity.IsDelete = true;
         }
 
-        public IQueryable<Product> All(bool isAll = false)
+        public IQueryable<Product> All(bool isAll)
         {
             if (isAll)
                 return base.All();
