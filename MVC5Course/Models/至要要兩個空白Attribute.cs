@@ -13,8 +13,9 @@ namespace MVC5Course.Models
 
         public override bool IsValid(object value)
         {
-            string str = (string)value;
-            return str.Count(p => p == ' ') >= 2;
+            //string str = (string)value;
+            //return str.Count(p => p == ' ') >= 2;
+            return true;
         }
 
 

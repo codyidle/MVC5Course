@@ -14,7 +14,7 @@ namespace MVC5Course.Models
                 yield return new ValidationResult("價格過低", new string[] { "Price" });
             }
 
-            if (this.Stock < 1300)
+            if (this.Stock < 100)
             {
                 yield return new ValidationResult("庫存過低", new string[] { "Stock" });
             }

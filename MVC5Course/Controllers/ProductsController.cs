@@ -20,7 +20,34 @@ namespace MVC5Course.Controllers
         public ActionResult Index()
         {
             //return View(db.Product.ToList());
-            return View(repoProduct.All());
+            return View(repoProduct.All().Take(5));
+        }
+
+        [HttpPost]
+        public ActionResult Index(IList<BatchUpdateProductViewModel> data)
+        {
+            if (ModelState.IsValid)
+            {
+
+                foreach (var item in data)
+                {
+
+                    var product = repoProduct.Find(item.ProductId);
+
+                        product.Price = item.Price;
+
+                        product.Active = item.Active;
+
+
+                        product.Stock = item.Stock;
+                    
+                }
+                repoProduct.UnitOfWork.Commit();
+
+                return RedirectToAction("Index", "Products");
+            }
+
+            return View(repoProduct.All().Take(5));
         }
 
         // GET: Products/Details/5
@@ -94,6 +121,10 @@ namespace MVC5Course.Controllers
 
                 dbproduct.Entry(product).State = EntityState.Modified;
                 dbproduct.SaveChanges();
+
+
+                TempData["ReturnMsg"] = product.ProductName + " 資料更新成功！";
+
                 return RedirectToAction("Index");
             }
             return View(product);
