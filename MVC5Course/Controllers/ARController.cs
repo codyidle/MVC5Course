@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class ARController : Controller
+    public class ARController : BaseController
     {
         // GET: AR
         public ActionResult Index()
@@ -25,6 +25,16 @@ namespace MVC5Course.Controllers
                 return File(Server.MapPath("~/mario.png"), "image/png", "download.png");
             else
                 return File(Server.MapPath("~/mario.png"), "image/png");
+        }
+
+        public ActionResult JsonTest(int id)
+        {
+            var db = repoProduct.UnitOfWork.Context;
+
+            db.Configuration.LazyLoadingEnabled = false;
+
+            var product = repoProduct.Find(id);
+            return Json(product,JsonRequestBehavior.AllowGet);
         }
     }
 }

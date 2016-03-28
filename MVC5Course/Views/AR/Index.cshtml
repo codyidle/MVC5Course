@@ -5,6 +5,19 @@
 
 <h2>Index</h2>
 
+
+
 <a href="@Url.Action("FileTest")?dl=1">
     <img src="@Url.Action("FileTest")" alt="Super Mario" style="width:200px" />
 </a>
+
+<button id="JsonTest" name="JsonTest" >按下取得JSON</button>
+@section Scripts{
+    <script>
+        $('#JsonTest').on("click", function () {
+            $.get('@Url.Action("JsonTest", new { id = 1 })', "", function (data) {
+                console.log(data);
+            })
+        })
+        </script>
+    }
