@@ -18,5 +18,13 @@ namespace MVC5Course.Controllers
         {
             return PartialView("Index");
         }
+
+        public ActionResult FileTest(int? dl)
+        {
+            if (dl.HasValue && dl == 1)
+                return File(Server.MapPath("~/mario.png"), "image/png", "download.png");
+            else
+                return File(Server.MapPath("~/mario.png"), "image/png");
+        }
     }
 }
