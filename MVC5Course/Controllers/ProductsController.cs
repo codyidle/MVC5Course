@@ -113,20 +113,31 @@ namespace MVC5Course.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
+        //public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
+        public ActionResult Edit(int id,FormCollection from)
         {
-            if (ModelState.IsValid)
+            //from 只是區別Function用，這裡沒用到
+
+            //if (ModelState.IsValid)
+            //{
+            //    var dbproduct = (FabricsEntities)repoProduct.UnitOfWork.Context;
+
+            //    dbproduct.Entry(product).State = EntityState.Modified;
+            //    dbproduct.SaveChanges();
+
+
+            //    TempData["ReturnMsg"] = product.ProductName + " 資料更新成功！";
+
+            //    return RedirectToAction("Index");
+            //}
+            var product = repoProduct.Find(id);
+            if (TryUpdateModel(product, new string[] { "ProductId", "ProductName", "Price", "Active", "Stock" }))
             {
-                var dbproduct = (FabricsEntities)repoProduct.UnitOfWork.Context;
-
-                dbproduct.Entry(product).State = EntityState.Modified;
-                dbproduct.SaveChanges();
-
-
+                repoProduct.UnitOfWork.Commit();
                 TempData["ReturnMsg"] = product.ProductName + " 資料更新成功！";
-
                 return RedirectToAction("Index");
             }
+
             return View(product);
         }
 
