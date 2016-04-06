@@ -11,6 +11,7 @@ using MVC5Course.Models;
 namespace MVC5Course.Controllers
 {
     [Action執行時間]
+    [Authorize]
     public class ProductsController : BaseController
     {
         
