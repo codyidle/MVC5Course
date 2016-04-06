@@ -10,6 +10,7 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
+    [Action執行時間]
     public class ProductsController : BaseController
     {
         
@@ -17,6 +18,7 @@ namespace MVC5Course.Controllers
         //private FabricsEntities db = new FabricsEntities();
 
         // GET: Products
+        [Action執行時間]
         public ActionResult Index()
         {
             //return View(db.Product.ToList());
