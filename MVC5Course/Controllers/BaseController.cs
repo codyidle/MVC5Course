@@ -14,7 +14,7 @@ namespace MVC5Course.Controllers
 
         protected override void HandleUnknownAction(string actionName)
         {
-            RedirectToAction("Index", "Home").ExecuteResult(ControllerContext);
+           // RedirectToAction("Index", "Home").ExecuteResult(ControllerContext);
         }
 
         
