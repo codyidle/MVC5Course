@@ -174,6 +174,13 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult Orderlines(int productId)
+        {
+
+            return PartialView(repoProduct.Find(productId).OrderLine);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
