@@ -185,6 +185,7 @@
     <Compile Include="Controllers\Action執行時間Attribute.cs" />
     <Compile Include="Controllers\ARController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -416,6 +417,17 @@
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Products\Orderlines.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Client.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Client.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CreditRating.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateOfBirth.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CreditRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

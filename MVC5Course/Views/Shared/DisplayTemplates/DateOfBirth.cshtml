@@ -1,0 +1,6 @@
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+    @Html.Label("民國"+(Model.Value.Year - 1911).ToString() + "年" + Model.Value.Month +"月"+ Model.Value.Day +"日");
+}
