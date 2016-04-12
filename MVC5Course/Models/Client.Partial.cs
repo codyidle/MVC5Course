@@ -28,7 +28,7 @@ namespace MVC5Course.Models
         [UIHint("DateOfBirth")]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
 
-        [UIHint("CreditRatingList")]
+        [UIHint("CreditRating")]
         public Nullable<double> CreditRating { get; set; }
         
         [StringLength(7, ErrorMessage="欄位長度不得大於 7 個字元")]
