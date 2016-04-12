@@ -26,7 +26,7 @@ namespace MVC5Course.Controllers
             ViewBag.Gender = new SelectList(genderList,"Value","Text", Gender);
             ViewBag.CreditRating = new SelectList(cRatingList,CreditRating);
 
-            var client = db.Client.Include(c => c.Occupation).Take(10);
+            var client = db.Client.Include(c => c.Occupation);
 
             if (!string.IsNullOrEmpty(Gender))
             {
@@ -37,7 +37,7 @@ namespace MVC5Course.Controllers
                 client = client.Where(p => p.CreditRating == CreditRating);
             }
 
-            return View(client.ToList());
+            return View(client.Take(10).ToList());
         }
 
         // GET: Clients/Details/5

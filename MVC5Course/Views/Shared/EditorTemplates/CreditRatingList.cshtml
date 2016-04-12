@@ -1,0 +1,11 @@
+﻿@using MVC5Course.Models
+@model double?
+
+
+@{
+    var db = new FabricsEntities();
+    var cRatingList = (from i in db.Client select i.CreditRating).Distinct().OrderBy(p => p);
+    var CRList = new SelectList(cRatingList, Model.Value);
+    @Html.DropDownList("", CRList, "請選擇", new { @class = "form-control" });
+}
+

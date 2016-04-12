@@ -428,6 +428,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CreditRating.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateOfBirth.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CreditRating.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CreditRatingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
